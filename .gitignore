@@ -1,0 +1,11 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+/.idea/
+/cadastro/build/
+/configuration/build/
+/eureka/build/
+/out/
+/processo/build/
+/.gradle/
+/build/
+

@@ -1,0 +1,34 @@
+####################################
+#server:
+#  port: 8888
+#spring:
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#      server:
+#        encrypt.enabled: false
+#        git:
+#          uri: https://github.com/carnellj/config-repo/
+#          searchPaths: licensingservice,organizationservice
+#          username: native-cloud-apps
+#          password: 0ffended
+
+
+####
+#Classpath and file-based solution
+####
+
+server:
+   port: 8888
+spring:
+  profiles:
+    active: native
+  cloud:
+     config:
+       server:
+           native:
+#              searchLocations: file://<chapter 3>/confsvr/src/main/resources/config/,
+#                               file://<chapter 3>confsvr/src/main/resources/config/
+              searchLocations: classpath:config/
+              #,classpath:config/licensingservice
