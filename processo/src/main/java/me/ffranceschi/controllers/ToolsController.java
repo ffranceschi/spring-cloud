@@ -17,7 +17,7 @@ public class ToolsController {
 
     @RequestMapping(value="/eureka/services",method = RequestMethod.GET)
     public String getEurekaServices() {
-
+        System.out.println("Processo!!!!");
         return "Oi " + prop;
     }
 }

@@ -5,6 +5,7 @@ package me.ffranceschi.controllers;
  */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ public class ToolsController {
     String prop;
 
     @Autowired
+    @LoadBalanced
     public RestTemplate restTemplate;
 
     @RequestMapping(value="/eureka/services",method = RequestMethod.GET)
