@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableCircuitBreaker
+@EnableHystrix
 @EnableHystrixDashboard
 public class CadastroApplication {
 

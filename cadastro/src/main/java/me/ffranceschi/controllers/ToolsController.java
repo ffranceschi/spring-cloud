@@ -3,6 +3,7 @@ package me.ffranceschi.controllers;
 /**
  * Created by fernando on 20/03/17.
  */
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -27,6 +28,7 @@ public class ToolsController {
     public RestTemplate restTemplate;
 
     @RequestMapping(value="/eureka/services",method = RequestMethod.GET)
+    @HystrixCommand(fallbackMethod = "teste")
     public String getEurekaServices() {
         ResponseEntity<String> restExchange =
                 restTemplate.exchange(
@@ -36,5 +38,10 @@ public class ToolsController {
 
         return restExchange.getBody() + prop;
 //        return "Oi " + prop;
+    }
+
+    public String teste() {
+//        throw new RuntimeException();
+        return "FallBack";
     }
 }
